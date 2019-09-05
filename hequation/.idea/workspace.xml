@@ -27,8 +27,36 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Heapp/templates/Heapp/PCindex.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="245" column="13" lean-forward="true" selection-start-line="245" selection-start-column="13" selection-end-line="245" selection-end-column="13" />
+            <state relative-caret-position="96">
+              <caret line="366" column="67" lean-forward="true" selection-start-line="366" selection-start-column="67" selection-end-line="366" selection-end-column="67" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Heapp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hequation/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+              <folding>
+                <element signature="e#633#665#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,18 +70,24 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>dropdown</find>
+      <find>user</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/hequation/urls.py" />
         <option value="$PROJECT_DIR$/Heapp/templates/Heapp/index.html" />
         <option value="$PROJECT_DIR$/Heapp/detectdevice.py" />
         <option value="$PROJECT_DIR$/Heapp/templates/Heapp/Mobileindex.html" />
         <option value="$PROJECT_DIR$/Heapp/static/css/cassette.css" />
-        <option value="$PROJECT_DIR$/Heapp/static/css/mycss.css" />
-        <option value="$PROJECT_DIR$/hequation/settings.py" />
-        <option value="$PROJECT_DIR$/Heapp/views.py" />
         <option value="$PROJECT_DIR$/Heapp/models.py" />
+        <option value="$PROJECT_DIR$/hequation/settings.py" />
+        <option value="$PROJECT_DIR$/Heapp/static/css/mycss.css" />
+        <option value="$PROJECT_DIR$/hequation/urls.py" />
+        <option value="$PROJECT_DIR$/Heapp/views.py" />
         <option value="$PROJECT_DIR$/Heapp/templates/Heapp/PCindex.html" />
       </list>
     </option>
@@ -68,7 +102,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -85,6 +118,19 @@
               <item name="hequation" type="b2602c69:ProjectViewProjectNode" />
               <item name="hequation" type="462c0819:PsiDirectoryNode" />
               <item name="Heapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hequation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hequation" type="462c0819:PsiDirectoryNode" />
+              <item name="Heapp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hequation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hequation" type="462c0819:PsiDirectoryNode" />
+              <item name="Heapp" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -94,10 +140,16 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="Heapp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hequation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hequation" type="462c0819:PsiDirectoryNode" />
+              <item name="hequation" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,23 +223,24 @@
       <workItem from="1567445553673" duration="573000" />
       <workItem from="1567509266471" duration="20554000" />
       <workItem from="1567568165963" duration="38996000" />
-      <workItem from="1567614878459" duration="241000" />
+      <workItem from="1567614878459" duration="2450000" />
+      <workItem from="1567651653962" duration="28838000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82173000" />
+    <option name="totallyTimeSpent" value="113220000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.496063" visible="true" weight="0.20291026" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496063" visible="true" weight="0.2061439" />
       <window_info id="Structure" order="1" sideWeight="0.503937" side_tool="true" weight="0.19967663" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41666666" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41666666" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -210,35 +263,54 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Heapp/static/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/Heapp/static/2.ico" />
+    <entry file="file://$PROJECT_DIR$/Heapp/detectdevice.py" />
+    <entry file="file://$PROJECT_DIR$/Heapp/templates/Heapp/Mobileindex.html" />
+    <entry file="file://$PROJECT_DIR$/Heapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hequation/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Heapp/static/css/mycss.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/hequation/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        <state relative-caret-position="165">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
           <folding>
             <element signature="e#633#665#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Heapp/static/2.ico" />
-    <entry file="file://$PROJECT_DIR$/Heapp/detectdevice.py" />
-    <entry file="file://$PROJECT_DIR$/Heapp/static/css/mycss.css" />
-    <entry file="file://$PROJECT_DIR$/Heapp/templates/Heapp/Mobileindex.html" />
-    <entry file="file://$PROJECT_DIR$/Heapp/models.py" />
-    <entry file="file://$PROJECT_DIR$/hequation/settings.py">
+    <entry file="file://$PROJECT_DIR$/Heapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+        <state relative-caret-position="57">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Heapp/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Heapp/templates/Heapp/PCindex.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="245" column="13" lean-forward="true" selection-start-line="245" selection-start-column="13" selection-end-line="245" selection-end-column="13" />
+        <state relative-caret-position="96">
+          <caret line="366" column="67" lean-forward="true" selection-start-line="366" selection-start-column="67" selection-end-line="366" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

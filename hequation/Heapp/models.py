@@ -8,5 +8,5 @@ class User(models.Model):
 
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=20)
+    username = models.IntegerField(default=0)
     comment = models.CharField(max_length=50)

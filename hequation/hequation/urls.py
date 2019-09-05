@@ -20,4 +20,7 @@ from Heapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_index),
+    path('login/', views.login),
+    path('register/', views.register),
+    path('logout/', views.logout)
 ]

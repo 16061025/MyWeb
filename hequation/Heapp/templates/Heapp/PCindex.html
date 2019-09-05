@@ -6,6 +6,7 @@
         <meta charset="UTF-8">
         <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="/static/css/mycss.css">
+
         <title>等待春天</title>
 
         <style TYPE="text/css">
@@ -258,11 +259,16 @@
                 border-radius: 5px;
                 font-family: "Microsoft YaHei UI Light";
             }
+            .popwin form{
+                position: relative;
+                top:20%;
+            }
             .popwin p{
                 position: relative;
-                left:25%;
+                left:23%;
                 top:25%;
             }
+
             .popwin button{
                 position: relative;
                 background: white;
@@ -277,7 +283,64 @@
             }
             .popwin button:hover{
                 background: aliceblue;
+                text-decoration:none;
             }
+            /*this is the begin of a drop*/
+
+            .dropbtn {
+                background: white;
+                padding: 0;
+                font-size: larger;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                font-family: "Microsoft YaHei UI Light";
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                float: right;
+                height: 100%;
+                width: 10%;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                min-width: 100%;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                height:100%;
+            }
+
+            .dropdown-content input {
+                color: black;
+                padding: 0;
+                border: 0;
+                margin: 0;
+                width: 100%;
+                text-decoration: none;
+                display: block;
+                height: 100%;
+                background-color: #f1f1f1;
+                font-family: "Microsoft YaHei UI Light";
+                font-size: larger;
+            }
+
+            .dropdown-content input:hover {
+                background-color: gainsboro;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown:hover .dropbtn {
+                background-color: aliceblue;
+            }
+            /*this is the end of the drop*/
+
         </style>
     </head>
 
@@ -298,7 +361,13 @@
         </div>
 
         <div id="topbanner">
-            <button id="loginbutton" onclick="login()">登录</button>
+            <div id="user" class="dropdown" style="display: {{ userdisplay }}">
+                <input id="userbutton" type="button" class="dropbtn" value="{{ username }}">
+                <div class="dropdown-content">
+                    <input type="button" onclick="logout()" value="退出">
+                </div>
+            </div>
+            <button id="loginbutton" style="display: {{ logindisplay }}" onclick="login()">登录</button>
             <button id="registerbutton" onclick="register()">注册</button>
         </div>
 
@@ -323,7 +392,7 @@
                 <h2>分享美好生活</h2>
             </div>
             <div id="camera">
-            <div class='container'>
+                <div class='container'>
                     <div class='camera-top'>
                         <div class='zoom'></div>
                         <div class='mode-changer'></div>
@@ -391,25 +460,31 @@
         <div id="shade" style="display: none"></div>
         <!--登录弹窗-->
         <div id="loginwin" class="popwin">
-            <p>用户：<input type="text" /></p>
-            <p>密码：<input type="password" /></p>
-            <p>
-                <button>登录</button>
-                <button onclick="loginqiut()">取消</button>
-            </p>
+            <form id="loginform" action="/login/" method="post">{% csrf_token %}
+                <p>用户：<input id="loginusername" type="text" name="username"/></p>
+                <p>密码：<input id="loginpassword" type="password" name="password"/></p>
+                <p>
+{#                    <input type="button" onclick="submitloginform()" value="登录"/>#}
+                    <button type="button" onclick="submitloginform()">登录</button>
+                    <button type="reset" onclick="loginqiut()" >取消</button>
+                </p>
+            </form>
         </div>
-
         <!--注册弹窗-->
         <div id="registerwin" class="popwin">
-            <p>用户：<input type="text" /></p>
-            <p>密码：<input type="password" /></p>
-            <p>
-                <button>注册</button>
-                <button onclick="regquit()">取消</button>
-            </p>
+            <form id="registerform" action="/register/" method="post">{% csrf_token %}
+                <p>用户：<input type="text" name="username"/></p>
+                <p>密码：<input type="password" name="password"/></p>
+                <p>
+                    <button type="button" onclick="submitregisterform()">注册</button>
+                    <button type="reset" onclick="regquit()">取消</button>
+                </p>
+            </form>
         </div>
 
         <script src = "https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://malsup.github.io/jquery.form.js"></script>
         <script>
             var canvas = document.getElementById("introindex");
             var ctx = canvas.getContext("2d");
@@ -561,7 +636,51 @@
                 document.getElementById('shade').style.display="none";
                 document.getElementById('loginwin').style.display="none";
             }
+            function submitloginform() {
+                // jquery 表单提交
+                $("#loginform").ajaxSubmit(function(result) {
+                    // 对于表单提交成功后处理，result为表单正常提交后返回的内容
+                    if (result.status === true) {
+                        document.getElementById('shade').style.display="none";
+                        document.getElementById('loginwin').style.display="none";
+                        document.getElementById("loginbutton").style.display="none";
+                        document.getElementById("user").style.display="block";
+                        document.getElementById("userbutton").value = "你好, "+result.username;
+                    }
+                    else {
+                        document.getElementById("loginusername").placeholder = result.usernameplaceholder;
+                        document.getElementById("loginpassword").placeholder = result.passwordplaceholder;
+                    }
+                });
+            }
+            function submitregisterform() {
+                // jquery 表单提交
+                $("#registerform").ajaxSubmit(function(result) {
+                    // 对于表单提交成功后处理，result为表单正常提交后返回的内容
+                    if (result.status === true) {
+                        document.getElementById('shade').style.display="none";
+                        document.getElementById('registerwin').style.display="none";
+                        document.getElementById("loginbutton").style.display="none";
+                        document.getElementById("user").style.display="block";
+                        document.getElementById("userbutton").value = "你好, "+result.username;
+                    }
+                    else {
+                        document.getElementById("registerusername").placeholder = result.usernameplaceholder;
+                        document.getElementById("registerpassword").placeholder = result.passwordplaceholder;
+                    }
+                });
+            }
+            function logout() {
+                $.ajax({
+                    url: '/logout/',
+                    type: 'get',
+                    dataType: 'json',
+                    success:function(){
+                        document.getElementById("user").style.display = "none"
+                        document.getElementById("loginbutton").style.display = "block"
+                    },
+                });
+            }
         </script>
     </body>
-
 </html>
