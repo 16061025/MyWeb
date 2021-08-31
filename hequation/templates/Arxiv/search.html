@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+    <script src = "http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        function selectAllCheckBox(){
+            var boxs = document.getElementsByName("downloadCheckBox")
+            var i;
+            for(i=0;i<boxs.length;i++) {
+                boxs[i].checked = true;
+            }
+        }
+
+        function reverseAllCheckBox(){
+            var boxs = document.getElementsByName("downloadCheckBox")
+            var i;
+            for(i=0;i<boxs.length;i++) {
+                boxs[i].checked = !boxs[i].checked;
+            }
+        }
+
+        function downloadChecked(){
+            var boxs = document.getElementsByName("downloadCheckBox")
+            var i
+            for(i=0;i<boxs.length;i++){
+                if(boxs[i].checked){
+                    var param = boxs[i].value.split("HXL", 2)
+                    downloadFileByUrlAndName(param[0], param[1])
+                }
+            }
+        }
+
+        //通过资源url下载文件，将文件命名为pdfname
+        function downloadFileByUrlAndName(url, pdfname){
+            var config = {
+                url:url,
+                responseType:'blob'
+            }
+            axios.request(config).then(function (response) {
+                saveBlobFile(response.data, pdfname);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
+        //保存文件
+        function saveBlobFile(BlobData,fileName){
+            var export_blob = new Blob([BlobData])
+            var blobURL = window.URL.createObjectURL(export_blob)
+            // 创建a标签，用于跳转至下载链接
+            const tempLink = document.createElement('a')
+            tempLink.style.display = 'none'
+            tempLink.href = blobURL
+            tempLink.setAttribute('download', fileName)
+            // 挂载a标签
+            document.body.appendChild(tempLink)
+            tempLink.click()
+            document.body.removeChild(tempLink)
+            // 释放blob URL地址
+            window.URL.revokeObjectURL(blobURL)
+        }
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

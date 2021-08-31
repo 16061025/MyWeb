@@ -1,0 +1,89 @@
+.index_page{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+
+.search_button{
+    background-color: #086db1;
+    border-color: transparent;
+    color: #fff;
+    border-width: 1px;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.375em - 1px);
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    padding-top: calc(0.375em - 1px);
+    text-align: center;
+    white-space: nowrap;
+}
+.home-search {
+    clear: both;
+    border: 1px solid #dddddd;
+    padding: .5em;
+    margin-top: 1em;
+}
+
+#cu-identity {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 63.125%;
+    color: #fff;
+    background-color: #222;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.columns:not(.is-desktop) {
+    display: flex;
+}
+is-vcentered {
+    align-items: center;
+}
+
+
+
+.columns {
+    display: flex;
+    flex-direction: row;
+}
+
+#cu-logo {
+    position: relative;
+    /* top: 0; */
+    left: 10px;
+    top: 2px;
+    width: 300px;
+    height: 49px;
+}
+#support-ack {
+    top: 12px;
+    right: 0%;
+    margin: 0 12px 0 0;
+    padding: 8px 0;
+    text-align: right;
+    font-size: 120%;
+    font-weight: normal;
+    font-family: 'Lucida Grande', helvetica, arial, verdana, sans-serif;
+    color: #fff;
+    width: 380px;
+}
+#header {
+    background-color: #b31b1b;
+    color: #fff;
+    margin: 0;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+    overflow: auto;
+}
+
+.column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 0.75rem;
+}

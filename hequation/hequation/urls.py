@@ -16,11 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Heapp import views
-
+import Arxiv.views as ArxivViews
+from django.urls import re_path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_index),
     path('login/', views.login),
     path('register/', views.register),
-    path('logout/', views.logout)
+    path('logout/', views.logout),
+    path('arxiv/', ArxivViews.arxiv),
+    path('arxiv/multi', ArxivViews.multi),
+    re_path('^search/', ArxivViews.search),
+    path('test', ArxivViews.test)
 ]

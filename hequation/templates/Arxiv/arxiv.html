@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arxiv</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/indexpage.css">
+</head>
+<body>
+    <div id="header" class="is-hidden-mobile">
+        <a aria-hidden="true" href="{url_path('ignore_me')}"></a>
+        <h1>arXiv.org <img src="https://static.arxiv.org/static/browse/0.3.2.8/images/arxiv-30.svg" alt="30th anniversary" style="width:43px;float:right;margin:6px 0 0 12px;"></h1>
+     </div>
+    <div class="index_page">
+        <form name="home-adv-search" class="home-search" action="/arxiv/multi" method="get" role="search">
+            <label for="search-category">Subject search and browse:</label>
+            <br>
+            <select name="group" title="Search in" id="search-category">
+                <option value="physics" selected="selected">
+                Physics
+                </option>
+                <option value="math">
+                    Mathematics
+                </option>
+                <option value="q-bio">
+                    Quantitative Biology
+                </option>
+                <option value="cs">
+                    Computer Science
+                </option>
+                <option value="q-fin">
+                    Quantitative Finance
+                </option>
+                <option value="stat">
+                    Statistics
+                </option>
+                <option value="eess">
+                    Electrical Engineering and Systems Science
+                </option>
+                <option value="econ">
+                    Economics
+                </option>
+            </select>
+            <button class="search_button">search</button>
+        </form>
+    </div>
+</body>
+</html>

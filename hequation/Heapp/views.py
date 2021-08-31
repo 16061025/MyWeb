@@ -3,6 +3,7 @@ from Heapp.detectdevice import DetectMobileBrowser
 from Heapp.models import User, Comment
 from django.http import HttpResponse, JsonResponse
 
+
 # Create your views here.
 def main_index(request):
     # DMB = DetectMobileBrowser()
@@ -82,4 +83,3 @@ def logout(request):
         'logindispaly': "block",
     }
     return JsonResponse(res)
-

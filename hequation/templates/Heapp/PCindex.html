@@ -1,0 +1,697 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/mycss.css">
+
+        <title>等待春天</title>
+
+        <style TYPE="text/css">
+            html,body {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                height: 100%;
+                width:100%;
+            }
+            body{
+                overflow-x:hidden;
+            }
+            #firstbg{
+                background-image: url("static/6.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: 100%;
+                width: 100%;
+            }
+            #secondbg{
+                background-image: url("static/secondbg.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: 100%;
+                width: 100%;
+            }
+            #thirdbg{
+                background-image: url("static/1.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: 100%;
+                width: 100%;
+            }
+
+            #introduction {
+                position: relative;
+                background: aliceblue;
+                margin: 0;
+                border: 0;
+                padding: 0;
+                {#height: 100%;#}
+                {#width: 100%;#}
+            }
+            #introindex{
+                margin: 0;
+                border: 0;
+                padding: 0;
+                height: 100%;
+                width: 100%;
+            }
+            #introtext{
+                position: absolute;
+                margin: 0;
+                border: 0;
+                padding: 0;
+                top: 50%;
+                left: 50%;
+            }
+            #friends{
+                {#background: azure;#}
+                position: relative;
+                height: 40%;
+            }
+            #friendstext{
+                position: absolute;
+                left: 42%;
+                top: 20%;
+                width: 40%;
+            }
+            #topbanner{
+                position: fixed;
+                top: 0;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                width: 100%;
+                height: 8%;
+                background-color: #ffffff;
+                z-index: 1;
+                display: none;
+            }
+            #topbanner > button{
+                font-family: "Microsoft YaHei UI Light";
+                font-size: larger;
+                background: white;
+                width:10%;
+                height: 100%;
+                float: right;
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+            #topbanner > button:hover{
+                background: aliceblue;
+            }
+            #photos{
+                position: relative;
+                background: aliceblue;
+                height: 100%;
+                width: 100%;
+            }
+            #photospic{
+                position: absolute;
+                top: 13%;
+                left: 5%;
+            }
+            #photospic >img{
+                width: 20%;
+                height: 30%;
+            }
+            #photospic > img:hover {
+                transform: scale(1.3);
+				transition-duration: 0.7s;
+            }
+            #photostext{
+                position: absolute;
+                top:10%;
+                left: 50%;
+            }
+            #photostext >h2{
+                font-family: "Microsoft YaHei UI Light";
+                font-size: 400%;
+                font-weight: lighter;
+                margin: 0;
+                border: 0;
+                padding: 0;
+            }
+            #camera{
+                position: absolute;
+                top:70%;
+                left: 70%;
+            }
+            #study{
+                position: relative;
+                background: aliceblue;
+                height: 100%;
+                width: 100%;
+            }
+            #studytext{
+                position: absolute;
+                top: 20%;
+                left:15%;
+            }
+            #studytext >img{
+                width: 10%;
+                height: 10%;
+                margin: 2%;
+            }
+            #studytext >h1{
+                font-family: "Microsoft YaHei UI Light";
+                font-size: 400%;
+                font-weight: lighter;
+                margin: 0;
+                border: 0;
+                padding: 0;
+            }
+            #study >img{
+                position: absolute;
+                top:10%;
+                left:50%;
+            }
+            #comment{
+                position: relative;
+                background: aliceblue;
+                height: 100%;
+                width: 100%;
+            }
+            #comment >h1{
+                position: absolute;
+                font-family: "Microsoft YaHei UI Light";
+                font-size: 300%;
+                font-weight: lighter;
+                margin:0;
+                padding: 0;
+                top:20%;
+                left: 60%;
+            }
+            #comment >form{
+                position: absolute;
+                width:23%;
+                height: 20%;
+                top:50%;
+                left: 60%;
+            }
+            #comment textarea{
+                border-radius: 5px;
+                background:transparent;
+                width: 100%;
+                height: 100%;
+            }
+            #comment button{
+                background: white;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                border-radius: 5px;
+                position: absolute;
+                left: 40%;
+                width: 25%;
+                height: 25%;
+            }
+            #comment button:hover{
+                background: lightskyblue;
+            }
+            #foot{
+                position: relative;
+                background: #2a2a2a;
+                height: 50%;
+                width: 100%;
+                border: 0;
+                margin: 0;
+                padding: 0;
+            }
+            #foottext{
+                height: 50%;
+                width: 50%;
+                position: absolute;
+                top: 10%;
+                left: 25%;
+            }
+            #footbar{
+                height:1px;
+                border:none;
+                border-top:1px solid #555555;
+            }
+            #shade{
+                position: fixed;
+                top:0;
+                bottom: 0;
+                left:0;
+                right: 0;
+                background: rgba(0,0,0,.5);
+                z-index: 2;
+            }
+            .popwin{
+                background-color: white;
+                position: fixed;
+                width: 400px;
+                height: 300px;
+                top:50%;
+                left: 50%;
+                z-index: 3;
+                display: none;
+                margin-top: -150px;
+                margin-left: -200px;
+                border-radius: 5px;
+                font-family: "Microsoft YaHei UI Light";
+            }
+            .popwin form{
+                position: relative;
+                top:20%;
+            }
+            .popwin p{
+                position: relative;
+                left:23%;
+                top:25%;
+            }
+
+            .popwin button{
+                position: relative;
+                background: white;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                border-radius: 5px;
+                left:15%;
+                width:50px;
+                height: 40px;
+                font-size: larger;
+            }
+            .popwin button:hover{
+                background: aliceblue;
+                text-decoration:none;
+            }
+            /*this is the begin of a drop*/
+
+            .dropbtn {
+                background: white;
+                padding: 0;
+                font-size: larger;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                font-family: "Microsoft YaHei UI Light";
+            }
+
+            .dropdown {
+                position: relative;
+                display: inline-block;
+                float: right;
+                height: 100%;
+                width: 10%;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                min-width: 100%;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                height:100%;
+            }
+
+            .dropdown-content input {
+                color: black;
+                padding: 0;
+                border: 0;
+                margin: 0;
+                width: 100%;
+                text-decoration: none;
+                display: block;
+                height: 100%;
+                background-color: #f1f1f1;
+                font-family: "Microsoft YaHei UI Light";
+                font-size: larger;
+            }
+
+            .dropdown-content input:hover {
+                background-color: gainsboro;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown:hover .dropbtn {
+                background-color: aliceblue;
+            }
+            /*this is the end of the drop*/
+            .danmu{
+                font-family: "Microsoft YaHei UI Light";
+                font-size: 200%;
+                position: absolute;
+                top:20%;
+                left: 60%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--first page-->
+        <div id="introduction">
+            <canvas id="introindex"></canvas>
+            <div id="introtext">
+                <h1 style="font-family: 'Microsoft YaHei UI Light'; font-weight: lighter">我, 不是何方印</h1>
+                <h1 style="font-family: 'Microsoft YaHei UI Light'; font-weight: lighter">谨把此页献给许洪陈小和实验对象</h1>
+            </div>
+        </div>
+        <div id="friends">
+            <div id="friendstext">
+                <h1 style="font-family: 'Microsoft YaHei UI Light'; font-weight: lighter">的歪脖子💥朴</h1>
+                <h1 style="font-family: 'Microsoft YaHei UI Light'; font-weight: lighter">和他的朋友们</h1>
+            </div>
+        </div>
+
+        <div id="topbanner">
+            <div id="user" class="dropdown" style="display: {{ userdisplay }}">
+                <input id="userbutton" type="button" class="dropbtn" value="{{ username }}">
+                <div class="dropdown-content">
+                    <input type="button" onclick="logout()" value="退出">
+                </div>
+            </div>
+            <button id="loginbutton" style="display: {{ logindisplay }}" onclick="login()">登录</button>
+            <button id="registerbutton" onclick="register()">注册</button>
+        </div>
+
+        <!--first part-->
+        <div id="firstbg"></div>
+        <div id="photos">
+            <div id="photospic">
+                <img id="p1" src="static/3.png">
+                <img id="p2" src="static/firstbg2.png">
+{#                <img src="static/qfirstbg.jpg">#}
+                <br>
+                <img id="p3" src="static/1.png">
+                <img id="p4" src="static/4.png">
+{#                <img id="p1" src="static/3.png">#}
+                <br>
+                <img src="static/2.png">
+                <img src="static/qfirstbg.jpg">
+{#                <img id="p2" src="static/firstbg2.png">#}
+            </div>
+            <div id="photostext">
+                <h2>菲林</h2>
+                <h2>分享美好生活</h2>
+            </div>
+            <div id="camera">
+                <div class='container'>
+                    <div class='camera-top'>
+                        <div class='zoom'></div>
+                        <div class='mode-changer'></div>
+                        <div class='sides'></div>
+                        <div class='range-finder'></div>
+                        <div class='focus'></div>
+                        <div class='red'></div>
+                        <div class='view-finder'></div>
+                        <div class='flash'>
+                            <div class='light'></div>
+                        </div>
+                    </div>
+                    <div class='camera-mid'>
+                        <div class='sensor'></div>
+                        <div class='lens'></div>
+                    </div>
+                    <div class='camera-bottom'></div>
+                </div>
+            </div>
+        </div>
+        <!--second part-->
+        <div id="secondbg"></div>
+        <div id="study">
+            <div id="studytext">
+                <h1>读 万 卷 书 ，</h1>
+                <h1>行 万 里 路 。</h1>
+                <br>
+                <h1 style="font-size: 200%; color: grey">一起分享他的学习历程 >>></h1>
+                <br>
+                <img src="static/src.png">
+                <img src="static/process.png">
+                <img src="static/poes.png">
+            </div>
+            <img src="static/study.png">
+        </div>
+        <!--third part-->
+        <div id="thirdbg"></div>
+        <div id="comment">
+{#            <h1>来给他留言吧</h1>#}
+{#            <table>#}
+{#                <c:forEach var="C" items="${comments}">#}
+{#       	            <tr>#}
+{#                        <td>${C.name}</td>#}
+{#                        <td>${C.comment}</td>#}
+{#	        	    </tr>#}
+{#	            </c:forEach>#}
+{#            </table>#}
+{#            <form method="post">#}
+{#                <textarea type="text" placeholder="请写下你的留言"></textarea>#}
+{#                <button type="reset">留言</button>#}
+{#            </form>#}
+            <img style="width: 45%; height:100%" src="static/danmu.jpg">
+            <div class="danmu">
+                <h1>弹幕装填中</h1>
+                <h1>敬请期待！</h1>
+            </div>
+        </div>
+
+        <!--foot-->
+        <div id="foot">
+            <div id="foottext">
+                <h5 style="color: grey; font-family: 'Microsoft YaHei UI Light'">冰块里的你笑得美丽苍白</h5>
+                <h5 style="color: grey; font-family: 'Microsoft YaHei UI Light'">那不是我要的颜色</h5>
+                <h5 style="color: gray; font-family: 'Microsoft YaHei UI Light'">却是我只有的唯一的颜色</h5>
+                <hr id="footbar"/>
+                <h6 style="color: grey; font-family: 'Microsoft YaHei UI Light'">京ICP备19038938号</h6>
+            </div>
+        </div>
+
+        <div id="shade" style="display: none"></div>
+        <!--登录弹窗-->
+        <div id="loginwin" class="popwin">
+            <form id="loginform" action="/login/" method="post">{% csrf_token %}
+                <p>用户：<input id="loginusername" type="text" name="username"/></p>
+                <p>密码：<input id="loginpassword" type="password" name="password"/></p>
+                <p>
+{#                    <input type="button" onclick="submitloginform()" value="登录"/>#}
+                    <button type="button" onclick="submitloginform()">登录</button>
+                    <button type="reset" onclick="loginqiut()" >取消</button>
+                </p>
+            </form>
+        </div>
+        <!--注册弹窗-->
+        <div id="registerwin" class="popwin">
+            <form id="registerform" action="/register/" method="post">{% csrf_token %}
+                <p>用户：<input type="text" name="username"/></p>
+                <p>密码：<input type="password" name="password"/></p>
+                <p>
+                    <button type="button" onclick="submitregisterform()">注册</button>
+                    <button type="reset" onclick="regquit()">取消</button>
+                </p>
+            </form>
+        </div>
+
+        <script src = "https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://malsup.github.io/jquery.form.js"></script>
+        <script>
+            var canvas = document.getElementById("introindex");
+            var ctx = canvas.getContext("2d");
+
+            resize();
+            window.onresize = resize;
+
+            function resize() {
+                canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            }
+
+            var RAF = (function() {
+                return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+            })();
+
+            // 鼠标活动时，获取鼠标坐标
+            var warea = {x: null, y: null, max: 20000};
+            window.onmousemove = function(e) {
+                e = e || window.event;
+
+                warea.x = e.clientX;
+                warea.y = e.clientY;
+            };
+            window.onmouseout = function(e) {
+                warea.x = null;
+                warea.y = null;
+            };
+
+            // 添加粒子
+            // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
+            var dots = [];
+            for (var i = 0; i < 200; i++) {
+                var x = Math.random() * canvas.width;
+                var y = Math.random() * canvas.height;
+                var xa = Math.random() * 2 - 1;
+                var ya = Math.random() * 2 - 1;
+
+                dots.push({
+                    x: x,
+                    y: y,
+                    xa: xa,
+                    ya: ya,
+                    max: 6000
+                })
+            }
+
+            // 延迟100秒开始执行动画，如果立即执行有时位置计算会出错
+            setTimeout(function() {
+                animate();
+            }, 100);
+
+            // 每一帧循环的逻辑
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // 将鼠标坐标添加进去，产生一个用于比对距离的点数组
+                var ndots = [warea].concat(dots);
+
+                dots.forEach(function(dot) {
+
+                    // 粒子位移
+                    dot.x += dot.xa;
+                    dot.y += dot.ya;
+
+                    // 遇到边界将加速度反向
+                    dot.xa *= (dot.x > canvas.width || dot.x < 0) ? -1 : 1;
+                    dot.ya *= (dot.y > canvas.height || dot.y < 0) ? -1 : 1;
+
+                    // 绘制点
+                    ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+
+                    // 循环比对粒子间的距离
+                    for (var i = 0; i < ndots.length; i++) {
+                        var d2 = ndots[i];
+
+                        if (dot === d2 || d2.x === null || d2.y === null) continue;
+
+                        var xc = dot.x - d2.x;
+                        var yc = dot.y - d2.y;
+
+                        // 两个粒子之间的距离
+                        var dis = xc * xc + yc * yc;
+
+                        // 距离比
+                        var ratio;
+
+                        // 如果两个粒子之间的距离小于粒子对象的max值，则在两个粒子间画线
+                        if (dis < d2.max) {
+
+                            // 如果是鼠标，则让粒子向鼠标的位置移动
+                            if (d2 === warea && dis > (d2.max / 2)) {
+                                dot.x -= xc * 0.03;
+                                dot.y -= yc * 0.03;
+                            }
+
+                            // 计算距离比
+                            ratio = (d2.max - dis) / d2.max;
+
+                            // 画线
+                            ctx.beginPath();
+                            ctx.lineWidth = ratio / 2;
+                            //线条颜色
+                            var a = Math.random();
+                            var b = Math.random();
+                            var c = Math.random();
+                            ctx.strokeStyle = 'rgba(103,154,188,' + (ratio + 0.2) + ')';
+                            ctx.moveTo(dot.x, dot.y);
+                            ctx.lineTo(d2.x, d2.y);
+                            ctx.stroke();
+                        }
+                    }
+
+                    // 将已经计算过的粒子从数组中删除
+                    ndots.splice(ndots.indexOf(dot), 1);
+                });
+
+                RAF(animate);
+            }
+            //当滚动条滑到背景图显示登录注册
+            $(window).scroll(function(){
+                var win_top=$(this).scrollTop();
+                var banner_top=$("#topbanner").offset().top;
+                {#console.log(win_top , 'aa');#}
+                {#console.log(banner_top, 'cc');#}
+                var topbanner = document.getElementById("topbanner");
+                if(win_top>=800){
+                    topbanner.style.display = "block";
+                }
+                else{
+                    topbanner.style.display = "none";
+                }
+            })
+            function register(){
+                document.getElementById('shade').style.display="block";
+                document.getElementById('registerwin').style.display="block";
+            }
+            function login(){
+                document.getElementById('shade').style.display="block";
+                document.getElementById('loginwin').style.display="block";
+            }
+            function regquit() {
+                document.getElementById('shade').style.display="none";
+                document.getElementById('registerwin').style.display="none";
+            }
+            function loginqiut() {
+                document.getElementById('shade').style.display="none";
+                document.getElementById('loginwin').style.display="none";
+            }
+            function submitloginform() {
+                // jquery 表单提交
+                $("#loginform").ajaxSubmit(function(result) {
+                    // 对于表单提交成功后处理，result为表单正常提交后返回的内容
+                    if (result.status === true) {
+                        document.getElementById('shade').style.display="none";
+                        document.getElementById('loginwin').style.display="none";
+                        document.getElementById("loginbutton").style.display="none";
+                        document.getElementById("user").style.display="block";
+                        document.getElementById("userbutton").value = "你好, "+result.username;
+                    }
+                    else {
+                        document.getElementById("loginusername").placeholder = result.usernameplaceholder;
+                        document.getElementById("loginpassword").placeholder = result.passwordplaceholder;
+                    }
+                });
+            }
+            function submitregisterform() {
+                // jquery 表单提交
+                $("#registerform").ajaxSubmit(function(result) {
+                    // 对于表单提交成功后处理，result为表单正常提交后返回的内容
+                    if (result.status === true) {
+                        document.getElementById('shade').style.display="none";
+                        document.getElementById('registerwin').style.display="none";
+                        document.getElementById("loginbutton").style.display="none";
+                        document.getElementById("user").style.display="block";
+                        document.getElementById("userbutton").value = "你好, "+result.username;
+                    }
+                    else {
+                        document.getElementById("registerusername").placeholder = result.usernameplaceholder;
+                        document.getElementById("registerpassword").placeholder = result.passwordplaceholder;
+                    }
+                });
+            }
+            function logout() {
+                $.ajax({
+                    url: '/logout/',
+                    type: 'get',
+                    dataType: 'json',
+                    success:function(){
+                        document.getElementById("user").style.display = "none"
+                        document.getElementById("loginbutton").style.display = "block"
+                    },
+                });
+            }
+        </script>
+    </body>
+</html>
